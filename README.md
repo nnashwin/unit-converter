@@ -1,7 +1,8 @@
 # unit-converter
 A command line unit converter that can take numbers and translate them into other units.
 
-Currently working on a few conversions:
+Currently working on:
+[] add command line support
 [] binary to decimal
 [] decimal to binary
 [] number to tens
