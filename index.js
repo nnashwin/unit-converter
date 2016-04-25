@@ -8,26 +8,55 @@ program
     .version('0.0.1')
     .arguments('<cmd> [env]')
     .action((cmd, env) => {
-        number = cmd
-        
+        inputNumber = cmd
     })
-    .option('-h, --hundreds', 'convert to hundreds')
-    .option('-t, --thousands', 'convert to thousands')
-    .option('-m, --millions', 'convert to millions')
-    .option('-b, --billions', 'convert to millions')
+    .option('-H, --hundreds', 'convert to hundreds')
+    .option('-T, --thousands', 'convert to thousands')
+    .option('-M, --millions', 'convert to millions')
+    .option('-B, --billions', 'convert to billions')
+    .option('-T, --trillions', 'convert to tillions')
+    .option('-Q, --quadrillions', 'convert to quadrillions')
+    .option('-Qu, --quintillions', 'convert to quintillions')
+    .option('-S, --sextillion', 'convert to sextillion')
+    .option('-Se, --septillion', 'convert to septillion')
 
 
 program.parse(process.argv)
 
-if (typeof number === 'undefined') {
+if (typeof inputNumber === 'undefined') {
     console.log('You need a number Bro!')
     process.exit(1)
 } 
 
 
-console.log(`your number is ${number}`)
-if (program.hundreds)
-    if (program.thousands) console.log(`${cmd}`)
-    if (program.millions) console.log(' - ')
-    if (program.billions) console.log(' - ')
+if (program.hundreds) {
+    console.log(`${hundreds(inputNumber)} hundreds`)
+}
+
+if (program.thousands) console.log(`${inputNumber} * .01`)
+if (program.millions) console.log(' - ')
+if (program.billions) console.log(`${billions(inputNumber)} billions`)
+if (program.trillions) console.log(`${trillions(inputNumber)} trillions`)
+
+
+
+function hundreds (inputNumber) {
+    return inputNumber / 100
+}
+
+function thousands (inputNumber) {
+    return inputNumber / 1000
+}
+
+function millions (inputNumber) {
+    return inputNumber / 1000000
+}
+
+function billions (inputNumber) {
+    return inputNumber / 1000000000
+}
+
+function trillions (inputNumber) {
+    return inputNumber / 1000000000000
+}
 
