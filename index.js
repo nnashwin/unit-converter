@@ -2,6 +2,7 @@
 
 'use strict'
 let program = require('commander')
+let BigInt = require('big-integer')
 let inputNumber
 
 program
@@ -16,9 +17,6 @@ program
     .option('-B, --billions', 'convert to billions')
     .option('-T, --trillions', 'convert to tillions')
     .option('-Q, --quadrillions', 'convert to quadrillions')
-    .option('-Qu, --quintillions', 'convert to quintillions')
-    .option('-S, --sextillion', 'convert to sextillion')
-    .option('-Se, --septillion', 'convert to septillion')
 
 
 program.parse(process.argv)
