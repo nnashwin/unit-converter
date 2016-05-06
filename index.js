@@ -8,10 +8,8 @@ program
     .version('0.0.1')
     .arguments('<cmd> [env]')
     .action((cmd, env) => {
-        console.log(typeof cmd)
         if (typeof cmd === 'string') {
             inputNumber = new Number(cmd)
-            console.log(inputNumber)
         }
     })
     .option('-H, --hundreds', 'convert to hundreds')
@@ -34,41 +32,40 @@ if (program.hundreds) {
     console.log(`${hundreds(inputNumber)} hundreds`)
 }
 
-if (program.thousands) console.log(`${thousands(inputNumber)} thousands`)
-if (program.millions) console.log(`${millions(inputNumber)} millions`)
-if (program.billions) console.log(`${billions(inputNumber)} billions`)
-if (program.trillions) console.log(`${trillions(inputNumber)} trillions`)
+if (program.thousands) console.log(`${convertToThousands(inputNumber)} thousands`)
+if (program.millions) console.log(`${convertToMillions(inputNumber)} millions`)
+if (program.billions) console.log(`${convertToBillions(inputNumber)} billions`)
+if (program.trillions) console.log(`${convertToTrillions(inputNumber)} trillions`)
+if (program.quadrillions) console.log(`${convertToQuadrillions(inputNumber)} quadrillions`)
 
 
 
-function hundreds (inputNumber) {
+function convertToHundreds (inputNumber) {
     let hundNum = (inputNumber / 100).toFixed(2)
     return hundNum
 }
 
-function thousands (inputNumber) {
+function convertToThousands (inputNumber) {
     let thouNum = (inputNumber / 1000).toFixed(3)
     return thouNum
 }
 
-function millions (inputNumber) {
+function convertToMillions (inputNumber) {
     let millNum = (inputNumber / 1000000).toFixed(6)
-    console.log(millNum)
     return millNum
 }
 
-function billions (inputNumber) {
+function convertToBillions (inputNumber) {
     let billNum = (inputNumber / 1000000000).toFixed(9)
-    console.log(billNum)
     return billNum
 }
 
-function trillions (inputNumber) {
+function convertToTrillions (inputNumber) {
     let trillNum = (inputNumber / 1000000000000).toFixed(12)
     return trillNum
 }
 
-function quadrillion (inputNumber) {
+function convertToQuadrillions (inputNumber) {
     let quadNum = (inputNumber / 1000000000000000).toFixed(15)
+    return quadNum
 }
-
